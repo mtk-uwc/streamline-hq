@@ -148,43 +148,102 @@ export default function PostEditor() {
             </Card>
           </div>
 
-          {/* Formatting Toolbar */}
+          {/* Formatting Ribbon */}
           <Card className="shadow-card bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900/50 dark:to-gray-800/50">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm">Formatting Toolbar</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap items-center gap-1 p-2 bg-white dark:bg-gray-800 rounded-md border">
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <Bold className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <Italic className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <Underline className="h-4 w-4" />
-                </Button>
-                <div className="w-px h-6 bg-border mx-1" />
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <List className="h-4 w-4" />
-                </Button>
-                <div className="w-px h-6 bg-border mx-1" />
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <AlignLeft className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <AlignCenter className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <AlignRight className="h-4 w-4" />
-                </Button>
-                <div className="w-px h-6 bg-border mx-1" />
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <Link className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                  <Image className="h-4 w-4" />
-                </Button>
+            <CardContent className="p-0">
+              <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                {/* Ribbon Tabs */}
+                <div className="flex border-b border-gray-200 dark:border-gray-700">
+                  <div className="px-4 py-2 bg-blue-50 dark:bg-blue-900/20 border-b-2 border-blue-500 text-blue-700 dark:text-blue-300 text-sm font-medium">
+                    Format
+                  </div>
+                  <div className="px-4 py-2 text-gray-600 dark:text-gray-400 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                    Insert
+                  </div>
+                  <div className="px-4 py-2 text-gray-600 dark:text-gray-400 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                    Layout
+                  </div>
+                </div>
+                
+                {/* Ribbon Content */}
+                <div className="p-3">
+                  <div className="flex items-center gap-6">
+                    {/* Font Formatting Group */}
+                    <div className="flex flex-col items-center">
+                      <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Font</div>
+                      <div className="flex items-center gap-1 p-1 bg-gray-50 dark:bg-gray-700 rounded">
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Bold">
+                          <Bold className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Italic">
+                          <Italic className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Underline">
+                          <Underline className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="w-px h-12 bg-gray-300 dark:bg-gray-600" />
+
+                    {/* Paragraph Group */}
+                    <div className="flex flex-col items-center">
+                      <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Paragraph</div>
+                      <div className="flex items-center gap-1 p-1 bg-gray-50 dark:bg-gray-700 rounded">
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Bullet List">
+                          <List className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Align Left">
+                          <AlignLeft className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Align Center">
+                          <AlignCenter className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Align Right">
+                          <AlignRight className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="w-px h-12 bg-gray-300 dark:bg-gray-600" />
+
+                    {/* Insert Group */}
+                    <div className="flex flex-col items-center">
+                      <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Insert</div>
+                      <div className="flex items-center gap-1 p-1 bg-gray-50 dark:bg-gray-700 rounded">
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Insert Link">
+                          <Link className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/30" title="Insert Image">
+                          <Image className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="w-px h-12 bg-gray-300 dark:bg-gray-600" />
+
+                    {/* Font Size Group */}
+                    <div className="flex flex-col items-center">
+                      <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Size</div>
+                      <div className="flex items-center gap-1">
+                        <Select defaultValue="16">
+                          <SelectTrigger className="w-16 h-8 text-xs">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="12">12</SelectItem>
+                            <SelectItem value="14">14</SelectItem>
+                            <SelectItem value="16">16</SelectItem>
+                            <SelectItem value="18">18</SelectItem>
+                            <SelectItem value="20">20</SelectItem>
+                            <SelectItem value="24">24</SelectItem>
+                            <SelectItem value="32">32</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
