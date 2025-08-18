@@ -250,9 +250,7 @@ export default function PostEditor() {
 
           {/* Content Editor */}
           <Card className="shadow-card bg-gradient-to-r from-pink-50 to-pink-100 dark:from-pink-900/20 dark:to-pink-800/20">
-            <CardHeader>
-              <CardTitle className="text-pink-900 dark:text-pink-100">Content</CardTitle>
-            </CardHeader>
+
             <CardContent>
               <Textarea
                 placeholder="Write your news article or study content here..."
