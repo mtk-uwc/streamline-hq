@@ -47,8 +47,8 @@ export function AdminSidebar() {
 
   const getNavCls = (active: boolean) =>
     active 
-      ? "bg-admin-blue text-white font-medium" 
-      : "hover:bg-muted/50 text-muted-foreground hover:text-foreground"
+      ? "bg-white/20 text-white font-medium" 
+      : "hover:bg-white/10 text-white/70 hover:text-white"
 
   return (
     <Sidebar

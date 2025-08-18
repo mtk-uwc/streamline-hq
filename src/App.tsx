@@ -7,6 +7,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AdminSidebar } from "@/components/AdminSidebar";
 import Dashboard from "./pages/Dashboard";
 import Posts from "./pages/Posts";
+import PostEditor from "./pages/PostEditor";
 import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
 
@@ -30,6 +31,7 @@ const App = () => (
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/posts" element={<Posts />} />
+                  <Route path="/posts/new" element={<PostEditor />} />
                   <Route path="/analytics" element={<Analytics />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
