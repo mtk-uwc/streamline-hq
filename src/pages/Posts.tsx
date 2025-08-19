@@ -158,11 +158,6 @@ export default function Posts() {
                           <Eye className="h-4 w-4" />
                         </a>
                       </Button>
-                      <Button variant="ghost" size="sm" asChild>
-                        <a href={`/posts/${post.id}/edit`}>
-                          <Edit className="h-4 w-4" />
-                        </a>
-                      </Button>
                       <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive">
                         <Trash2 className="h-4 w-4" />
                       </Button>

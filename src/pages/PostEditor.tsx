@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { MetricCard } from "@/components/MetricCard"
 import { 
   ArrowLeft,
   Save,
@@ -20,11 +21,17 @@ import {
   AlignRight,
   Link,
   Image,
-  X
+  X,
+  Eye,
+  Clock,
+  TrendingUp
 } from "lucide-react"
 
 export default function PostEditor() {
   const navigate = useNavigate()
+  const { id } = useParams()
+  const isEditing = Boolean(id)
+  
   const [title, setTitle] = useState("")
   const [author, setAuthor] = useState("")
   const [category, setCategory] = useState("")
@@ -32,7 +39,25 @@ export default function PostEditor() {
   const [tags, setTags] = useState<string[]>([])
   const [newTag, setNewTag] = useState("")
 
+  // Mock analytics data for existing posts
+  const analyticsData = {
+    engagements: "1,234",
+    readingTime: "5.2 min",
+    views: "8,943"
+  }
+
   const categories = ["Technology", "Education", "Reviews", "Collaboration", "News"]
+
+  useEffect(() => {
+    if (isEditing && id) {
+      // Mock loading existing post data
+      setTitle("Latest Industry Trends Analysis")
+      setAuthor("John Doe")
+      setCategory("Technology")
+      setContent("This is an in-depth analysis of current industry trends in virtual reality and immersive technologies. The landscape has been rapidly evolving...")
+      setTags(["technology", "trends", "analysis", "VR"])
+    }
+  }, [id, isEditing])
 
   const addTag = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && newTag.trim()) {
@@ -72,8 +97,12 @@ export default function PostEditor() {
             Back to Posts
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Create New Post</h1>
-            <p className="text-muted-foreground">Write and publish your content.</p>
+            <h1 className="text-3xl font-bold text-foreground">
+              {isEditing ? "Editing/Viewing a Post" : "Create New Post"}
+            </h1>
+            <p className="text-muted-foreground">
+              {isEditing ? "Edit your post and view analytics." : "Write and publish your content."}
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -94,6 +123,33 @@ export default function PostEditor() {
           </Button>
         </div>
       </div>
+
+      {/* Analytics Cards - Only show when editing */}
+      {isEditing && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <MetricCard
+            title="No. of Engagements"
+            value={analyticsData.engagements}
+            icon={Eye}
+            variant="blue"
+            subtitle="Total interactions"
+          />
+          <MetricCard
+            title="Total Reading Time"
+            value={analyticsData.readingTime}
+            icon={Clock}
+            variant="green"
+            subtitle="Average per user"
+          />
+          <MetricCard
+            title="Total Views"
+            value={analyticsData.views}
+            icon={TrendingUp}
+            variant="pink"
+            subtitle="Unique visitors"
+          />
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Content Area */}
