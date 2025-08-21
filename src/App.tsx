@@ -8,6 +8,7 @@ import { AdminSidebar } from "@/components/AdminSidebar";
 import Dashboard from "./pages/Dashboard";
 import Posts from "./pages/Posts";
 import PostEditor from "./pages/PostEditor";
+import Projects from "./pages/Projects";
 import TeamMemberEditor from "./pages/TeamMemberEditor";
 import EquipmentEditor from "./pages/EquipmentEditor";
 import ProjectEditor from "./pages/ProjectEditor";
@@ -36,9 +37,11 @@ const App = () => (
                   <Route path="/posts" element={<Posts />} />
                   <Route path="/posts/new" element={<PostEditor />} />
                   <Route path="/posts/:id" element={<PostEditor />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/projects/new" element={<ProjectEditor />} />
+                  <Route path="/projects/:id" element={<ProjectEditor />} />
                   <Route path="/team/new" element={<TeamMemberEditor />} />
                   <Route path="/equipment/new" element={<EquipmentEditor />} />
-                  <Route path="/projects/new" element={<ProjectEditor />} />
                   <Route path="/analytics" element={<Analytics />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />

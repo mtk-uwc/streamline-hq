@@ -5,7 +5,8 @@ import {
   Users,
   BarChart3,
   PlusCircle,
-  Monitor
+  Monitor,
+  FolderOpen
 } from "lucide-react"
 
 import {
@@ -23,6 +24,7 @@ import {
 const navigation = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard },
   { title: "Posts", url: "/posts", icon: FileText },
+  { title: "Projects", url: "/projects", icon: FolderOpen },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
   { title: "Team", url: "/team", icon: Users },
   { title: "Equipment", url: "/equipment", icon: Monitor },
@@ -30,6 +32,7 @@ const navigation = [
 
 const quickActions = [
   { title: "Create Post", url: "/posts/new", icon: PlusCircle },
+  { title: "Add Project", url: "/projects/new", icon: FolderOpen },
   { title: "Add Team Member", url: "/team/new", icon: Users },
   { title: "Add Equipment", url: "/equipment/new", icon: Monitor },
 ]
