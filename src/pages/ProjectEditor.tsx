@@ -61,9 +61,9 @@ export default function ProjectEditor() {
       </div>
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column */}
-        <div className="space-y-6">
+        <div className="lg:col-span-9 space-y-6">
           {/* Project Name and Company Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card className="border-primary/20">
@@ -143,7 +143,7 @@ export default function ProjectEditor() {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-6">
+        <div className="lg:col-span-3 space-y-6">
           {/* Links */}
           <Card className="border-primary/20">
             <CardContent className="p-4">
