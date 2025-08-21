@@ -10,6 +10,7 @@ import Posts from "./pages/Posts";
 import PostEditor from "./pages/PostEditor";
 import TeamMemberEditor from "./pages/TeamMemberEditor";
 import EquipmentEditor from "./pages/EquipmentEditor";
+import ProjectEditor from "./pages/ProjectEditor";
 import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
 
@@ -37,6 +38,7 @@ const App = () => (
                   <Route path="/posts/:id" element={<PostEditor />} />
                   <Route path="/team/new" element={<TeamMemberEditor />} />
                   <Route path="/equipment/new" element={<EquipmentEditor />} />
+                  <Route path="/projects/new" element={<ProjectEditor />} />
                   <Route path="/analytics" element={<Analytics />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
